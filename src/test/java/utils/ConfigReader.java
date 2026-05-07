@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigReader {
-    Properties prop;
+    static  Properties prop;
     public ConfigReader() {
         try {
             FileInputStream fis = new FileInputStream(
@@ -16,7 +16,7 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-    public String get(String key) {
+    public static String get(String key) {
         return prop.getProperty(key);
     }
 }
