@@ -13,7 +13,7 @@ public class ScreenshotUtil {
 
         File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-        String path = "screenshots/" + testName + "_" + timestamp + ".png";
+        String path=System.getProperty("user.dir")+"/screenshots/"+testName+"_"+timestamp+".png";
         File dest = new File(path);
         try {
             FileUtils.copyFile(src, dest);
