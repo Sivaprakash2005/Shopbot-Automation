@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 
 public class ScreenshotUtil {
 
-    public static void captureScreenshot(WebDriver driver, String testName) {
+    public static String captureScreenshot(WebDriver driver, String testName) {
 
         File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         String timestamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
@@ -21,5 +21,6 @@ public class ScreenshotUtil {
         } catch(IOException e) {
             e.printStackTrace();
         }
+        return path;
     }
 }

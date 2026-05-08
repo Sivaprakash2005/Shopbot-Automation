@@ -1,22 +1,23 @@
 package utils;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ConfigReader {
-    static  Properties prop;
-    public ConfigReader() {
+
+    static Properties prop;
+    static {
         try {
-            FileInputStream fis = new FileInputStream(
-                    System.getProperty("user.dir") + "/src/test/resources/config.properties"
-            );
             prop = new Properties();
-            prop.load(fis);
-        } catch (Exception e) {
+            InputStream input = ConfigReader.class.getClassLoader().getResourceAsStream("config.properties");
+            prop.load(input);
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
-    public static String get(String key) {
+    public static String getProperty(
+            String key) {
+
         return prop.getProperty(key);
     }
 }

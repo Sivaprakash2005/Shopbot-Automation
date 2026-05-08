@@ -20,7 +20,7 @@ public class BaseTest {
     public void setup() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get(ConfigReader.get("baseUrl"));
+        driver.get(ConfigReader.getProperty("baseUrl"));
     }
 
     @AfterMethod

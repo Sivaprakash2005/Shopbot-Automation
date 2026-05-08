@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
     WebDriver driver;
@@ -27,6 +30,8 @@ public class LoginPage {
 
     public void logout() {
         driver.findElement(menuBtn).click();
+        WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(logoutLink));
         driver.findElement(logoutLink).click();
     }
 }
